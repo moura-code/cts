@@ -1,0 +1,377 @@
+\documentclass[11pt,a4paper]{article}
+
+% --- Paquetes ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{parskip}
+
+\onehalfspacing
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \includegraphics[width=4cm]{logo-fing.png}\\[0.5cm]
+    {\large Facultad de Ingeniería --- Universidad de la República}\\[0.3cm]
+    {\normalsize Ciencia, Tecnología y Sociedad --- 2026}\\[2cm]
+    {\LARGE \textbf{Inteligencia artificial, datos personales y regulación en Uruguay: un análisis desde la perspectiva Ciencia, Tecnología y Sociedad}}\\[2.5cm]
+    \begin{tabular}{llll}
+    \textbf{Nombre} & \textbf{C.I.} & \textbf{Email} & \textbf{Carrera} \\
+    \hline
+    Joao Calado Moura & 6.509.286-0 & jcaladomoura@gmail.com & Ing.\ Computación \\
+    Federico Buratti Rossini & 6.086.904-2 & Federicoburatti05@gmail.com & Ing.\ Química \\
+    Facundo Stazione & 5.521.104-0 & facundo.stazione@gmail.com & Ing.\ Computación \\
+    \end{tabular}\\[1cm]
+    \textbf{Grupo 48} --- Tutor: Rodrigo Alonso (rodalonso@fing.edu.uy)
+    \vfill
+\end{titlepage}
+
+% --- ÍNDICE ---
+\tableofcontents
+\newpage
+
+% ========================================================================
+% 1. INTRODUCCIÓN
+% ========================================================================
+\section{Introducción}
+
+La transformación digital que atraviesa el mundo contemporáneo ha alterado de manera profunda las formas en que las personas trabajan, se comunican, consumen y se relacionan con las instituciones. En el centro de esta transformación se encuentra la inteligencia artificial (IA), un conjunto de tecnologías que permite a los sistemas informáticos procesar grandes volúmenes de datos, identificar patrones y tomar decisiones con grados crecientes de autonomía. Lejos de ser un fenómeno exclusivamente técnico, la expansión de la IA plantea interrogantes fundamentales sobre el poder, la vigilancia, la autonomía individual y la capacidad de los Estados para regular actores tecnológicos de alcance global.
+
+En las últimas dos décadas, las plataformas digitales ---Google, Meta, Amazon, entre otras--- han consolidado un modelo de negocios basado en la extracción masiva de datos personales. Cada búsqueda, cada interacción en redes sociales, cada compra en línea y cada desplazamiento registrado por un teléfono genera información que alimenta algoritmos diseñados para predecir y orientar el comportamiento humano. Shoshana Zuboff (2020) ha denominado a este fenómeno \textit{capitalismo de la vigilancia}: una forma de capitalismo que reclama la experiencia humana como materia prima gratuita para prácticas comerciales de extracción, predicción y venta.
+
+Uruguay no es ajeno a esta dinámica. El país se posiciona como uno de los líderes regionales en conectividad, gobierno digital e infraestructura tecnológica. Con una penetración de internet superior al 85\% de la población, un uso extendido de plataformas como WhatsApp, Instagram y Google, y políticas públicas orientadas a la digitalización ---como el Plan Ceibal y la Agenda Uruguay Digital---, los ciudadanos uruguayos interactúan cotidianamente con sistemas que recopilan y procesan sus datos personales. Sin embargo, la pregunta sobre qué sucede con esos datos, quién los controla y con qué fines se utilizan permanece en gran medida sin respuesta para la mayoría de la población.
+
+Desde la perspectiva de los estudios de Ciencia, Tecnología y Sociedad (CTS), la tecnología no puede entenderse como un artefacto neutro cuyo impacto depende únicamente del uso que se le dé. Como ha señalado Langdon Winner (2008), los artefactos tecnológicos encarnan decisiones políticas: su diseño, su implementación y su regulación reflejan relaciones de poder y producen efectos sobre la organización social. En este sentido, los sistemas de IA y las plataformas digitales no son herramientas inocentes que simplemente mejoran la productividad o facilitan la comunicación; son infraestructuras que estructuran relaciones económicas, redistribuyen poder y redefinen los límites entre lo público y lo privado.
+
+La presente monografía se propone analizar cómo los sistemas de inteligencia artificial y las plataformas digitales recopilan y utilizan los datos personales de los usuarios, y evaluar las respuestas regulatorias que el Estado uruguayo ha desarrollado frente a estas prácticas, todo ello desde el enfoque CTS. Se busca así contribuir a una comprensión crítica de un fenómeno que afecta transversalmente a la sociedad uruguaya y que interpela directamente a quienes, como futuros ingenieros, participarán en el diseño, la implementación y la gestión de estos sistemas tecnológicos.
+
+El trabajo se organiza de la siguiente manera: en primer lugar, se presentan las preguntas y objetivos que guían la investigación, seguidos de la metodología empleada. A continuación, se desarrolla el marco teórico que articula el capitalismo de la vigilancia con el enfoque CTS, se describen los mecanismos de recopilación de datos, se analizan casos emblemáticos y el rol de los modelos generativos, se examina la situación de Uruguay en el ecosistema digital, se estudia el marco regulatorio vigente y se realiza un análisis CTS integrado. Finalmente, se formulan las conclusiones, incluyendo una reflexión sobre el rol de los futuros ingenieros.
+
+% ========================================================================
+% 2. PREGUNTAS Y OBJETIVOS
+% ========================================================================
+\section{Preguntas y objetivos del trabajo}
+
+\subsection{Preguntas de investigación}
+
+Las preguntas que guían esta indagatoria son las siguientes:
+
+\begin{enumerate}
+    \item ¿De qué manera los sistemas de inteligencia artificial y las plataformas digitales recopilan y utilizan los datos personales de los usuarios?
+    \item ¿Cuál es el marco regulatorio vigente en Uruguay para la protección de datos personales frente a estas prácticas?
+    \item ¿Qué implicancias tienen estas dinámicas para la sociedad uruguaya desde una perspectiva CTS, considerando las relaciones de poder, la autonomía ciudadana y el desarrollo de capacidades nacionales?
+\end{enumerate}
+
+\subsection{Objetivo general}
+
+Analizar el uso de datos personales por parte de sistemas de inteligencia artificial y plataformas digitales, y evaluar las respuestas regulatorias del Estado uruguayo desde una perspectiva Ciencia, Tecnología y Sociedad.
+
+\subsection{Objetivos específicos}
+
+\begin{enumerate}
+    \item Describir los mecanismos técnicos y comerciales mediante los cuales los sistemas de IA y las plataformas digitales recopilan, procesan y utilizan datos personales, incluyendo los modelos generativos de lenguaje.
+    \item Identificar y analizar el marco jurídico e institucional uruguayo en materia de protección de datos personales, con énfasis en la Ley 18.331, la Unidad Reguladora y de Control de Datos Personales (URCDP) y la Estrategia Nacional de Inteligencia Artificial.
+    \item Evaluar críticamente, desde el enfoque CTS, las implicancias sociales de la vigilancia digital y el uso de datos por IA en el contexto uruguayo, considerando las relaciones de poder, la dependencia tecnológica, la autonomía ciudadana y el desarrollo de capacidades nacionales.
+\end{enumerate}
+
+% ========================================================================
+% 3. METODOLOGÍA
+% ========================================================================
+\section{Metodología de trabajo}
+
+La presente monografía adopta un enfoque cualitativo de carácter descriptivo-analítico. La investigación se sustenta en tres pilares metodológicos principales.
+
+En primer lugar, se realizó una \textbf{revisión bibliográfica} de fuentes académicas, tanto nacionales como internacionales, que abordan el capitalismo de la vigilancia, la economía de datos, la inteligencia artificial y el enfoque CTS. Se consultaron libros, artículos arbitrados y documentos de organismos internacionales, priorizando aquellas fuentes que permiten articular el análisis teórico con el caso uruguayo. Entre las fuentes principales se encuentran los trabajos de Zuboff (2020), Winner (2008), Srnicek (2018), Aboal et al.\ (2021), Barafani et al.\ (2020) y Sábato y Botana (1968).
+
+En segundo lugar, se llevó a cabo un \textbf{análisis documental} del marco normativo e institucional uruguayo en materia de protección de datos personales e inteligencia artificial. Se examinaron la Ley 18.331, los informes y resoluciones de la URCDP, documentos de la Agencia de Gobierno Electrónico y Sociedad de la Información y del Conocimiento (AGESIC), y la Estrategia Nacional de Inteligencia Artificial para el Gobierno Digital. Este análisis permite identificar las fortalezas y limitaciones del marco regulatorio vigente frente a las prácticas de recopilación de datos por parte de plataformas y sistemas de IA.
+
+En tercer lugar, se realizó un \textbf{análisis de casos} relevantes a nivel internacional ---Cambridge Analytica, la integración de Meta AI en plataformas de mensajería, y el uso de datos para el entrenamiento de modelos generativos de lenguaje--- que permiten ilustrar de manera concreta los mecanismos y consecuencias de la vigilancia digital, y evaluar su relevancia para el contexto uruguayo.
+
+La combinación de estas tres estrategias permite construir un análisis que no se limita a la descripción técnica de los mecanismos de vigilancia digital, sino que los sitúa en su contexto social, económico y político, en sintonía con el enfoque CTS que orienta la presente investigación.
+
+% ========================================================================
+% 4. DESARROLLO
+% ========================================================================
+\section{Desarrollo de la investigación}
+
+% --------------------------------------------------------------------
+% 4.1 MARCO TEÓRICO
+% --------------------------------------------------------------------
+\subsection{Marco teórico: capitalismo de la vigilancia, enfoque CTS y dependencia tecnológica}
+
+\subsubsection{El capitalismo de la vigilancia según Zuboff}
+
+Shoshana Zuboff (2020) introduce el concepto de \textit{capitalismo de la vigilancia} para describir una mutación del capitalismo contemporáneo que se distingue de sus formas previas ---industrial y financiera--- por un rasgo central: la apropiación de la experiencia humana como materia prima para la producción de datos orientados a la predicción y modificación del comportamiento.
+
+Según Zuboff, las grandes empresas tecnológicas descubrieron que los datos generados por los usuarios en sus interacciones digitales contenían un valor que excedía lo necesario para mejorar los servicios ofrecidos. Este excedente ---que la autora denomina \textit{excedente conductual} (\textit{behavioral surplus})--- es procesado mediante técnicas de aprendizaje automático para producir \textit{productos de predicción}: estimaciones sobre lo que un usuario hará en el futuro, cómo se comportará, qué comprará, qué opinará. Estos productos son vendidos en lo que Zuboff llama \textit{mercados de futuros conductuales}, donde empresas anunciantes y otros actores pagan por la capacidad de anticipar y, en última instancia, influir sobre las acciones de las personas.
+
+La lógica del capitalismo de la vigilancia opera, según Zuboff, a través de lo que denomina \textit{poder instrumentario}: una forma de poder que no busca controlar a las personas mediante la fuerza o la ideología, sino que aspira a conocerlas tan profundamente que puede moldear su comportamiento de manera imperceptible, a través de \textit{nudges} algorítmicos, personalización de contenidos y arquitecturas de elección diseñadas para orientar decisiones. A diferencia del totalitarismo, que opera mediante la amenaza y la coerción, el poder instrumentario funciona mediante la certeza predictiva: no necesita que las personas obedezcan, sino que se comporten de manera predecible.
+
+Este marco conceptual resulta fundamental para la presente monografía porque permite comprender que los sistemas de IA no son herramientas técnicas neutras, sino componentes de una infraestructura económica y social que redefine las relaciones entre empresas y usuarios, entre quienes poseen los medios de predicción y quienes son objeto de esa predicción.
+
+\subsubsection{El enfoque CTS: determinismo tecnológico, construcción social y política de los artefactos}
+
+Los estudios de Ciencia, Tecnología y Sociedad (CTS) constituyen un campo interdisciplinario que examina las relaciones recíprocas entre el desarrollo científico-tecnológico y la organización social. El campo surge como respuesta a dos visiones reduccionistas que dominaron el pensamiento del siglo XX: por un lado, el \textit{determinismo tecnológico}, que concibe a la tecnología como una fuerza autónoma que se desarrolla según una lógica interna propia e impone sus efectos sobre la sociedad de manera inevitable; por otro, el \textit{instrumentalismo}, que reduce la tecnología a una herramienta neutral cuyo impacto depende exclusivamente del uso que se le dé.
+
+Frente a ambas visiones, el programa de la Construcción Social de la Tecnología (SCOT), desarrollado por Bijker y Pinch (1987), propone que las tecnologías son el resultado de procesos de negociación entre diversos \textit{grupos sociales relevantes}, cada uno de los cuales atribuye significados diferentes a un mismo artefacto. El desarrollo tecnológico no sigue una trayectoria lineal e inevitable, sino que es el producto de decisiones, conflictos e intereses que podrían haber conducido a resultados diferentes. Esta perspectiva es central para analizar las plataformas digitales: su diseño actual ---orientado a la maximización del tiempo de uso y la extracción de datos--- no es el único diseño posible, sino el resultado de decisiones económicas y políticas específicas.
+
+Langdon Winner (2008), en su obra \textit{La ballena y el reactor}, complementa esta perspectiva con una pregunta central: ¿tienen política los artefactos? Su respuesta es afirmativa. Para Winner, las tecnologías no son simples medios para la actividad humana, sino fuerzas que actúan para remodelar dicha actividad y su significado. Los artefactos tecnológicos encarnan decisiones sobre quién tiene acceso, quién es excluido, cómo se distribuye el poder y qué formas de vida se favorecen o se dificultan. Winner introduce además el concepto de \textit{sonambulismo tecnológico}: la tendencia de las sociedades a aceptar las innovaciones tecnológicas sin reflexión crítica sobre sus implicancias, como si fueran hechos consumados e inevitables.
+
+Esta perspectiva es directamente aplicable al análisis de las plataformas digitales y los sistemas de IA. El diseño de un algoritmo de recomendación, la arquitectura de una red social o los términos de servicio de una plataforma no son decisiones meramente técnicas: son decisiones políticas que determinan qué información ven las personas, cómo se monetiza su atención y qué datos se recopilan sobre ellas. La aceptación acrítica de estas tecnologías por parte de los usuarios constituye un caso paradigmático de sonambulismo tecnológico.
+
+\subsubsection{Dependencia tecnológica y periferia: el triángulo de Sábato}
+
+Para analizar la situación de un país como Uruguay frente a las dinámicas globales de la vigilancia digital, resulta pertinente incorporar las contribuciones del pensamiento latinoamericano sobre ciencia, tecnología y desarrollo. Jorge Sábato y Natalio Botana (1968) propusieron el modelo del \textit{triángulo de Sábato}, que describe las relaciones necesarias entre tres vértices para lograr un desarrollo científico-tecnológico autónomo: el Estado (como diseñador y ejecutor de políticas), la estructura productiva (empresas e industria) y la infraestructura científico-tecnológica (universidades, centros de investigación).
+
+Este modelo permite pensar la situación de Uruguay en el ecosistema digital: si los tres vértices del triángulo no están adecuadamente articulados, el país queda en una posición de \textit{dependencia tecnológica}, donde la capacidad de generar y controlar tecnología se concentra en actores externos. En el caso de la vigilancia digital, esta dependencia se manifiesta de manera particularmente aguda: la infraestructura tecnológica sobre la que opera la vida digital de los uruguayos ---plataformas, servicios en la nube, sistemas de IA--- es propiedad de empresas extranjeras con sede en Estados Unidos o China. El Estado uruguayo puede regular, pero no tiene control sobre el diseño ni el funcionamiento de estas tecnologías.
+
+\subsubsection{Articulación: vigilancia digital como problema CTS}
+
+La articulación entre el capitalismo de la vigilancia, el enfoque CTS y el pensamiento sobre dependencia tecnológica permite construir un marco analítico que no se limita a describir qué datos recopilan las plataformas, sino que interroga las condiciones sociales que hacen posible esa recopilación, los intereses que la impulsan, las consecuencias que produce y las respuestas regulatorias que los Estados ---particularmente los Estados periféricos--- pueden o no desarrollar.
+
+Desde esta perspectiva, la vigilancia digital es un problema genuinamente CTS: involucra ciencia (algoritmos de aprendizaje automático, modelos de procesamiento de lenguaje natural), tecnología (plataformas, infraestructuras de datos, dispositivos) y sociedad (relaciones de poder, derechos ciudadanos, marcos regulatorios, capacidades nacionales). No puede entenderse desde una sola de estas dimensiones: requiere un análisis integrado que es, precisamente, el que propone el campo CTS.
+
+% --------------------------------------------------------------------
+% 4.2 IA Y DATOS PERSONALES
+% --------------------------------------------------------------------
+\subsection{Inteligencia artificial y recopilación de datos personales}
+
+\subsubsection{La economía de los datos como modelo de negocios}
+
+El desarrollo de la inteligencia artificial contemporánea está íntimamente ligado a la disponibilidad de grandes volúmenes de datos. Los modelos de aprendizaje automático (\textit{machine learning}) ---y en particular los modelos de aprendizaje profundo (\textit{deep learning})--- requieren cantidades masivas de datos de entrenamiento para identificar patrones, realizar predicciones y generar contenidos. Esta necesidad técnica ha generado una economía en la que los datos personales se han convertido en un recurso estratégico, comparable en importancia al petróleo en la era industrial.
+
+Nick Srnicek (2018) analiza este fenómeno desde el concepto de \textit{capitalismo de plataformas}. Según Srnicek, las plataformas digitales ---entendidas como infraestructuras que intermedian entre distintos grupos de usuarios--- han emergido como el modelo empresarial dominante de la economía digital. Su ventaja competitiva reside en los \textit{efectos de red}: cuantos más usuarios tiene una plataforma, más datos genera, mejores son sus algoritmos y más valor ofrece, lo que atrae a más usuarios en un ciclo que tiende al monopolio natural. Para estas empresas, los datos no son un subproducto de la actividad del usuario: son el producto principal, la fuente de su valor económico y la barrera de entrada que impide la competencia.
+
+Srnicek identifica distintos tipos de plataformas ---publicitarias (Google, Facebook), industriales, de productos, lean (Uber, Airbnb)--- pero señala que todas comparten la lógica de la extracción de datos como fuente de valor. Esta tipología es útil para comprender que la vigilancia digital no es un fenómeno limitado a las redes sociales: atraviesa el comercio electrónico, el transporte, el alojamiento, la educación y, cada vez más, el ámbito laboral y la administración pública.
+
+\subsubsection{Mecanismos de recopilación}
+
+Los mecanismos mediante los cuales las plataformas y los sistemas de IA recopilan datos personales son diversos y operan, en muchos casos, de manera opaca para el usuario:
+
+\begin{itemize}
+    \item \textbf{Datos proporcionados directamente:} información que el usuario entrega de manera consciente al registrarse en una plataforma o utilizar un servicio ---nombre, correo electrónico, fecha de nacimiento, ubicación, fotografías, contenido de mensajes.
+    \item \textbf{Datos de comportamiento:} registros de la actividad del usuario dentro de la plataforma ---búsquedas realizadas, contenidos consumidos, tiempo de permanencia en cada publicación, velocidad de desplazamiento (\textit{scrolling}), clics, interacciones sociales, patrones de escritura. Este es el principal componente del excedente conductual descrito por Zuboff (2020).
+    \item \textbf{Metadatos:} información sobre el contexto de uso ---dirección IP, tipo de dispositivo, sistema operativo, ubicación geográfica precisa (GPS), hora de conexión, redes Wi-Fi cercanas, nivel de batería. Aunque aparentemente inocuos, los metadatos permiten inferencias detalladas sobre los hábitos, desplazamientos y vida personal del usuario.
+    \item \textbf{Datos de terceros:} información obtenida a través de \textit{trackers}, \textit{píxeles de seguimiento} y \textit{cookies} instalados en sitios web externos a la plataforma, que permiten rastrear la actividad de navegación del usuario a través de múltiples sitios. También incluyen los datos obtenidos mediante acuerdos comerciales entre empresas (\textit{data brokers}) que compran, agregan y revenden perfiles de usuarios.
+    \item \textbf{Datos inferidos:} información que no fue proporcionada por el usuario ni observada directamente, sino deducida mediante algoritmos a partir de correlaciones estadísticas ---preferencias políticas, orientación sexual, estado de salud mental, nivel socioeconómico, probabilidad de embarazo, propensión al consumo de sustancias, riesgo crediticio, entre otros. Estos datos son particularmente problemáticos porque el usuario ni siquiera sabe que existen.
+\end{itemize}
+
+\subsubsection{De la recopilación a la predicción y la modificación del comportamiento}
+
+El valor de estos datos reside en su procesamiento. Los sistemas de IA procesan los datos recopilados para construir perfiles detallados de cada usuario, que permiten predecir su comportamiento futuro con grados crecientes de precisión. Estos perfiles son utilizados para múltiples fines: personalización de publicidad, determinación dinámica de precios, evaluación crediticia automatizada, selección algorítmica de personal, moderación de contenidos, recomendación algorítmica y, cada vez más, decisiones que afectan directamente la vida de las personas (acceso a seguros, asignación de vivienda, evaluación de riesgo en el sistema judicial).
+
+Como señala Zuboff (2020), el objetivo último del capitalismo de la vigilancia no es simplemente conocer al usuario, sino modificar su comportamiento. Los algoritmos de recomendación no se limitan a mostrar contenido relevante: están diseñados para maximizar el tiempo de permanencia en la plataforma, lo que implica explotar sesgos cognitivos, generar dependencia y polarizar la información para capturar la atención. La publicidad personalizada no se limita a mostrar productos relevantes: aspira a intervenir en el momento exacto en que el usuario es más susceptible a la compra, creando lo que Zuboff denomina \textit{economías de acción} ---la capacidad de no solo predecir sino producir determinados comportamientos.
+
+Esta dinámica plantea un problema fundamental desde la perspectiva CTS: la tecnología no está siendo utilizada para servir al usuario, sino para extraer valor de él. La relación entre el usuario y la plataforma es estructuralmente asimétrica: el usuario entrega sus datos ---a menudo sin comprender plenamente el alcance de esa entrega--- y recibe a cambio un servicio cuyo verdadero costo es la pérdida de control sobre su propia información y, en última instancia, sobre su propia capacidad de decisión autónoma.
+
+% --------------------------------------------------------------------
+% 4.3 CASOS EMBLEMÁTICOS Y MODELOS GENERATIVOS
+% --------------------------------------------------------------------
+\subsection{Casos emblemáticos y el rol de los modelos generativos}
+
+\subsubsection{Cambridge Analytica: la vigilancia al servicio de la manipulación política}
+
+El caso de Cambridge Analytica, revelado en 2018, constituye uno de los ejemplos más documentados de cómo la recopilación masiva de datos personales puede ser utilizada con fines de manipulación política. La empresa ---una consultora de datos políticos vinculada a la campaña presidencial de Donald Trump en 2016--- obtuvo datos personales de aproximadamente 87 millones de usuarios de Facebook sin su consentimiento explícito, a través de una aplicación de test de personalidad que recopilaba no solo los datos de quien la usaba, sino también los de todos sus contactos en la red social.
+
+Con estos datos, Cambridge Analytica construyó perfiles psicográficos detallados de votantes estadounidenses, que permitieron diseñar mensajes políticos personalizados orientados a modificar el comportamiento electoral de segmentos específicos de la población. El caso demostró de manera concreta que la vigilancia digital no es solo un problema de privacidad comercial: es una amenaza para la integridad de los procesos democráticos.
+
+Desde la perspectiva CTS, el caso Cambridge Analytica ilustra varios conceptos centrales: la opacidad de los sistemas tecnológicos (los usuarios no sabían que sus datos estaban siendo utilizados con fines políticos), la asimetría de poder (una empresa con capacidad de perfilar a millones de ciudadanos puede influir en elecciones), y la insuficiencia de los marcos regulatorios existentes (Facebook pagó una multa de 5.000 millones de dólares, que representaba aproximadamente dos semanas de ingresos de la empresa). La desproporción entre el daño causado y la sanción impuesta evidencia las limitaciones de la regulación frente al poder económico de las plataformas.
+
+\subsubsection{Meta AI y la integración de IA en plataformas de mensajería}
+
+Un fenómeno más reciente y directamente relevante para los uruguayos es la integración de sistemas de inteligencia artificial dentro de plataformas de comunicación personal. Meta (empresa propietaria de WhatsApp, Instagram y Facebook) ha desplegado Meta AI, un asistente basado en modelos generativos de lenguaje, directamente dentro de los chats grupales de WhatsApp. Esta integración significa que un sistema de IA de una empresa privada está presente en las conversaciones personales de millones de personas, con acceso potencial al contenido de los mensajes que los usuarios le dirigen.
+
+Si bien Meta ha declarado que los mensajes de WhatsApp mantienen su cifrado de extremo a extremo y que Meta AI solo procesa los mensajes que le son dirigidos explícitamente (mediante mención), la presencia misma del sistema dentro de espacios de comunicación privada plantea interrogantes desde la perspectiva CTS. ¿Comprenden los usuarios las implicancias de interactuar con un sistema de IA dentro de un chat grupal? ¿Qué sucede con los datos de las consultas realizadas a Meta AI? ¿Cómo se compatibiliza la promesa de privacidad de WhatsApp con la presencia de un sistema que, por definición, procesa y aprende de las interacciones?
+
+Para los uruguayos, cuyo uso de WhatsApp es prácticamente universal para comunicaciones personales, laborales e incluso institucionales, esta integración representa una extensión del capitalismo de la vigilancia a espacios que hasta hace poco se percibían como privados.
+
+\subsubsection{Modelos generativos de lenguaje: una nueva frontera}
+
+Los modelos generativos de lenguaje ---como GPT (OpenAI), Gemini (Google), Claude (Anthropic) y LLaMA (Meta)--- representan una nueva frontera en la relación entre inteligencia artificial, datos personales y sociedad. Estos modelos son entrenados con cantidades masivas de texto extraído de internet, que incluyen información personal publicada en foros, redes sociales, blogs y bases de datos públicas. Las personas cuyos datos fueron utilizados para entrenar estos modelos generalmente no dieron su consentimiento para ese uso específico, ni fueron informadas de que su contenido sería procesado para construir sistemas de IA comerciales.
+
+Además, la interacción cotidiana con estos modelos genera nuevos datos. Cada consulta (\textit{prompt}) que un usuario realiza a un modelo generativo puede contener información personal, profesional o confidencial. Las empresas desarrolladoras de estos modelos recopilan las conversaciones de los usuarios ---en muchos casos de manera predeterminada, requiriendo una acción explícita del usuario para desactivar esta recopilación--- y las utilizan para entrenar versiones futuras del modelo. Esto significa que la información que un estudiante, un profesional o un ciudadano comparte con un modelo de IA puede eventualmente contribuir al entrenamiento de un sistema que beneficia económicamente a una empresa privada extranjera.
+
+Desde la perspectiva CTS, los modelos generativos profundizan las dinámicas del capitalismo de la vigilancia de dos maneras. Primero, amplían el alcance de la recopilación de datos: ya no se trata solo de registrar comportamientos de navegación, sino de acceder a las preguntas, dudas, ideas y procesos de pensamiento de los usuarios. Segundo, la concentración del desarrollo de estos modelos en un puñado de empresas ---casi todas estadounidenses--- refuerza las asimetrías globales de poder tecnológico y la dependencia de los países periféricos respecto de infraestructuras de conocimiento controladas desde el exterior.
+
+% --------------------------------------------------------------------
+% 4.4 URUGUAY EN EL ECOSISTEMA DIGITAL
+% --------------------------------------------------------------------
+\subsection{Uruguay en el ecosistema digital}
+
+\subsubsection{Desarrollo digital e infraestructura}
+
+Uruguay ha sido reconocido como un referente regional en materia de desarrollo digital. Desde la implementación del Plan Ceibal en 2007 ---uno de los programas pioneros a nivel mundial en la distribución de dispositivos informáticos a estudiantes de educación pública---, el país ha sostenido una política activa de inclusión digital y desarrollo de infraestructura tecnológica.
+
+La empresa estatal de telecomunicaciones Antel ha desplegado una red de fibra óptica que alcanza una cobertura significativa del territorio nacional, posicionando a Uruguay entre los países latinoamericanos con mayor velocidad de conexión a internet. La penetración de internet supera el 85\% de la población, y el uso de teléfonos inteligentes es prácticamente universal entre la población adulta. Estas condiciones hacen que los uruguayos interactúen de manera cotidiana y extensiva con plataformas digitales globales.
+
+Por su parte, la Agencia de Gobierno Electrónico y Sociedad de la Información y del Conocimiento (AGESIC) ha impulsado una agenda de gobierno digital que ha convertido a Uruguay en uno de los países más avanzados de América Latina en materia de servicios públicos digitales. La tramitación en línea de servicios estatales, el sistema de identidad digital (ID Uruguay), el acceso digital a historias clínicas electrónicas, la firma electrónica avanzada y la interoperabilidad entre organismos del Estado son ejemplos de esta transformación. El gobierno uruguayo ha apostado decididamente por la digitalización como herramienta de modernización del Estado y mejora de los servicios al ciudadano.
+
+\subsubsection{La Estrategia Nacional de Inteligencia Artificial}
+
+En 2019, Uruguay presentó su Estrategia Nacional de Inteligencia Artificial para el Gobierno Digital, convirtiéndose en uno de los primeros países de América Latina en desarrollar una política pública específica en la materia. La estrategia, coordinada por AGESIC, se orienta a promover el uso de IA en la administración pública para mejorar la eficiencia de los servicios, la toma de decisiones basada en datos y la atención ciudadana.
+
+Sin embargo, la estrategia se centra fundamentalmente en el uso de IA por parte del Estado, y aborda de manera limitada los desafíos que plantea el uso de IA por parte de empresas privadas ---particularmente las plataformas globales--- en lo que refiere a la protección de datos personales de los ciudadanos. Esta es una brecha significativa: mientras el Estado uruguayo avanza en el uso responsable de IA, las plataformas privadas que operan en el país no están sujetas a requisitos equivalentes de transparencia, rendición de cuentas o evaluación de impacto.
+
+\subsubsection{Uso de plataformas y exposición a la vigilancia}
+
+El alto grado de digitalización de la sociedad uruguaya implica, paradójicamente, una mayor exposición a las dinámicas del capitalismo de la vigilancia. El uso masivo de plataformas como WhatsApp, Instagram, Google, YouTube, Facebook, TikTok y Spotify implica que una proporción significativa de las comunicaciones, búsquedas, consumos culturales y transacciones comerciales de los uruguayos genera datos que son recopilados y procesados por empresas extranjeras, cuyos centros de decisión están fuera del país y cuyas prácticas de tratamiento de datos no siempre se ajustan a la legislación local.
+
+A modo ilustrativo: cuando un uruguayo busca información en Google, el buscador registra la consulta, la hora, la ubicación, el dispositivo utilizado y la interacción con los resultados. Cuando usa WhatsApp, Meta recopila metadatos de comunicación (con quién, cuándo, con qué frecuencia). Cuando navega por Instagram, la plataforma registra qué publicaciones mira, cuánto tiempo dedica a cada una, qué contenido le genera interacción y qué tipo de cuentas prefiere. Toda esta información se integra en un perfil unificado que permite a estas empresas conocer en profundidad los hábitos, preferencias, relaciones sociales y vulnerabilidades de millones de uruguayos.
+
+Esta situación plantea un desafío específico desde la perspectiva CTS y del triángulo de Sábato: el desarrollo tecnológico de Uruguay ---que constituye un logro en términos de conectividad e inclusión--- genera al mismo tiempo una dependencia tecnológica respecto de plataformas globales sobre las cuales el Estado uruguayo tiene capacidad de regulación limitada. No existen alternativas nacionales a los servicios de Google, Meta o Amazon, lo que implica que la infraestructura digital sobre la que opera buena parte de la economía y la vida social del país está controlada por actores privados extranjeros. El vértice de la estructura productiva del triángulo, en lo que refiere a servicios digitales, está esencialmente fuera del territorio nacional.
+
+\subsubsection{Automatización y transformación del trabajo}
+
+El contexto de la vigilancia digital no puede desligarse de los procesos de automatización y transformación del trabajo. Aboal, López, Maurizio y Queraltó (2021) analizan los efectos de la automatización sobre el empleo en Uruguay y concluyen que el impacto no es homogéneo: depende del tipo de tarea, del sector productivo y de las calificaciones laborales. Las tareas rutinarias ---tanto manuales como cognitivas--- son las más susceptibles de ser automatizadas, mientras que las tareas que requieren creatividad, interacción social compleja o toma de decisiones en contextos inciertos presentan menor riesgo. Según sus estimaciones, aproximadamente el 36\% de los empleos en Uruguay podrían verse afectados en algún grado por la automatización.
+
+Barafani et al.\ (2020), por su parte, documentan que la adopción de tecnologías de la industria 4.0 en empresas uruguayas es heterogénea. Si bien existe interés y avances en sectores como la agroindustria y los servicios tecnológicos, persisten brechas en formación de capital humano, inversión en investigación y desarrollo, y capacidad de absorción tecnológica. Estos estudios son relevantes porque muestran que la digitalización y la IA no solo implican vigilancia y datos, sino que transforman integralmente la relación entre tecnología, trabajo y sociedad en Uruguay, generando tanto oportunidades como desigualdades.
+
+% --------------------------------------------------------------------
+% 4.5 MARCO REGULATORIO
+% --------------------------------------------------------------------
+\subsection{Marco regulatorio uruguayo para la protección de datos personales}
+
+\subsubsection{Ley 18.331: principios y derechos}
+
+Uruguay cuenta con un marco normativo en materia de protección de datos personales que se ubica entre los más avanzados de América Latina. La Ley 18.331, de Protección de Datos Personales y Acción de Habeas Data, fue promulgada en 2008 y estableció un conjunto de principios rectores para el tratamiento de datos personales: legalidad, veracidad, finalidad, consentimiento previo e informado, seguridad de los datos y responsabilidad.
+
+La ley reconoce a los titulares de los datos un conjunto de derechos fundamentales: el derecho de acceso (conocer qué datos están siendo tratados), el derecho de rectificación (corregir datos inexactos), el derecho de supresión (solicitar la eliminación de datos) y el derecho de oposición (negarse al tratamiento de sus datos para determinados fines). Estos derechos, conocidos como derechos ARCO, constituyen herramientas jurídicas que, al menos en principio, empoderan a los ciudadanos frente a quienes tratan sus datos. Además, la acción de Habeas Data permite a cualquier persona recurrir a la justicia para solicitar el acceso, la rectificación o la eliminación de sus datos personales cuando el responsable del tratamiento no responde a su solicitud.
+
+La ley también establece la categoría de \textit{datos sensibles} ---aquellos que revelan origen racial o étnico, opiniones políticas, convicciones religiosas, estado de salud, vida sexual u orientación sexual--- y les otorga un régimen de protección reforzado, prohibiendo su tratamiento sin consentimiento expreso y escrito del titular. Sin embargo, como se verá más adelante, muchos de estos datos pueden ser inferidos por sistemas de IA sin ser proporcionados directamente por el usuario, lo que plantea un desafío para la aplicación efectiva de esta protección.
+
+\subsubsection{Institucionalidad: la URCDP}
+
+Para la aplicación de la Ley 18.331, se creó la Unidad Reguladora y de Control de Datos Personales (URCDP), organismo que funciona en la órbita de AGESIC. La URCDP tiene competencias para registrar bases de datos, supervisar el cumplimiento de la normativa, recibir denuncias, emitir dictámenes y aplicar sanciones. Su existencia representa un avance institucional significativo, ya que dota al país de un organismo especializado en una materia que en muchos países de la región carece de supervisión efectiva.
+
+Un hito relevante en la trayectoria regulatoria de Uruguay fue la decisión de la Comisión Europea, adoptada en 2012, de reconocer a Uruguay como un país con un nivel adecuado de protección de datos personales. Esta decisión de adecuación ---que solo un reducido número de países fuera de Europa ha obtenido (entre ellos Argentina, Israel, Japón y Nueva Zelanda)--- permitió la libre transferencia de datos entre Uruguay y los países de la Unión Europea, y constituyó un reconocimiento internacional de la solidez del marco normativo uruguayo.
+
+Adicionalmente, Uruguay adhirió en 2013 al Convenio 108 del Consejo de Europa para la protección de las personas con respecto al tratamiento automatizado de datos de carácter personal, siendo el primer país no europeo en hacerlo. En 2019, Uruguay adhirió también al Protocolo de Enmienda al Convenio 108 (conocido como Convenio 108+), que actualiza el instrumento para incorporar los desafíos de la era digital, incluyendo disposiciones sobre tratamiento automatizado y flujos transfronterizos de datos.
+
+\subsubsection{Limitaciones y desafíos frente a la IA}
+
+Sin embargo, un análisis más detallado revela limitaciones importantes del marco regulatorio vigente, especialmente en relación con los desafíos que plantean la inteligencia artificial y las plataformas digitales globales.
+
+En primer lugar, la Ley 18.331 fue concebida en 2008, en un contexto tecnológico sustancialmente diferente al actual. Los sistemas de IA contemporáneos ---modelos de lenguaje, algoritmos de recomendación, sistemas de reconocimiento facial, sistemas de puntuación crediticia automatizada--- no existían en su forma actual cuando la ley fue redactada. La normativa no aborda de manera específica cuestiones como la toma de decisiones automatizadas, el derecho a una explicación de las decisiones algorítmicas (la llamada \textit{explicabilidad} o \textit{transparencia algorítmica}), el derecho a la intervención humana en decisiones automatizadas, o la regulación del uso de datos para el entrenamiento de modelos de inteligencia artificial.
+
+En segundo lugar, el concepto de \textit{consentimiento informado}, que constituye uno de los pilares de la ley, enfrenta limitaciones prácticas en el contexto de las plataformas digitales. Los términos de servicio de plataformas como Google o Meta son documentos extensos ---frecuentemente superiores a las 10.000 palabras---, redactados en lenguaje técnico-jurídico, que los usuarios aceptan de manera generalizada sin leer ni comprender. Investigaciones han demostrado que la inmensa mayoría de los usuarios nunca lee estos documentos. Más aún, el consentimiento es a menudo una condición necesaria para acceder a servicios que se han vuelto prácticamente indispensables en la vida cotidiana ---la comunicación por WhatsApp, la búsqueda en Google, la navegación en redes sociales---, lo que cuestiona la voluntariedad real de dicho consentimiento. No existe una alternativa real: o se aceptan los términos, o se queda excluido de la vida digital.
+
+En tercer lugar, la capacidad de fiscalización de la URCDP frente a plataformas globales es estructuralmente limitada. Estas empresas operan desde jurisdicciones extranjeras, procesan datos en servidores distribuidos a escala global y cuentan con recursos legales y económicos que exceden ampliamente los de un organismo regulador de un país pequeño. Las sanciones que la URCDP puede imponer resultan insignificantes para empresas cuya facturación anual supera el PIB de Uruguay. Esta asimetría entre el regulador nacional y los actores regulados transnacionales constituye uno de los desafíos más importantes del marco vigente.
+
+En cuarto lugar, la categoría de \textit{datos inferidos} ---aquellos que los sistemas de IA deducen a partir de correlaciones estadísticas sin que el usuario los haya proporcionado--- no está claramente regulada por la ley. ¿Son datos personales las inferencias que un algoritmo realiza sobre la orientación política o el estado de salud de una persona a partir de sus patrones de navegación? La respuesta a esta pregunta tiene implicancias jurídicas directas para la protección de los ciudadanos, pero el marco normativo vigente no la aborda explícitamente.
+
+\subsubsection{Contexto comparado e iniciativas internacionales}
+
+En el ámbito internacional, el Reglamento General de Protección de Datos (RGPD) de la Unión Europea, vigente desde 2018, representa el estándar más avanzado en materia de regulación de datos personales. El RGPD introduce disposiciones que abordan específicamente los desafíos de la IA, como el derecho a no ser objeto de decisiones basadas únicamente en el tratamiento automatizado de datos (artículo 22), el derecho a la portabilidad de datos, requisitos más estrictos en materia de consentimiento, la obligación de realizar evaluaciones de impacto en materia de protección de datos, y el principio de privacidad por diseño (\textit{privacy by design}).
+
+Además, la Unión Europea aprobó en 2024 el Reglamento de Inteligencia Artificial (AI Act), que establece un marco de regulación específico para los sistemas de IA basado en niveles de riesgo. Los sistemas de IA clasificados como de alto riesgo ---entre ellos los sistemas de puntuación social, identificación biométrica remota y toma de decisiones en el ámbito laboral--- quedan sujetos a requisitos estrictos de transparencia, supervisión humana y evaluación de conformidad. Esta legislación representa un paradigma nuevo: no se limita a proteger datos, sino que regula directamente los sistemas de IA en función de su potencial impacto social.
+
+En la región, Brasil promulgó en 2018 la Lei Geral de Proteção de Dados (LGPD), inspirada en el RGPD, que incluye disposiciones sobre decisiones automatizadas y ha sido complementada por propuestas de regulación específica de IA. Argentina cuenta con la Ley 25.326, de protección de datos personales, vigente desde el año 2000, y ha presentado proyectos legislativos para regularla. Estos marcos comparados permiten identificar áreas concretas en las que el marco uruguayo podría evolucionar: regulación de decisiones automatizadas, transparencia algorítmica, evaluaciones de impacto obligatorias y un régimen de sanciones proporcional al poder económico de los actores regulados.
+
+% --------------------------------------------------------------------
+% 4.6 ANÁLISIS CTS
+% --------------------------------------------------------------------
+\subsection{Análisis CTS: implicancias sociales de la vigilancia digital en Uruguay}
+
+\subsubsection{Asimetría de poder y autonomía ciudadana}
+
+Desde el enfoque CTS, el fenómeno de la vigilancia digital puede entenderse como una manifestación de lo que Winner (2008) describe cuando afirma que las tecnologías no son simples medios, sino fuerzas que remodelan la actividad humana y su significado. Las plataformas digitales han reconfigurado la relación entre empresas y usuarios de manera fundamentalmente asimétrica: las empresas conocen en detalle los comportamientos, preferencias, hábitos y vulnerabilidades de sus usuarios, mientras que estos últimos desconocen qué datos se recopilan sobre ellos, cómo se procesan y con qué fines se utilizan.
+
+Esta asimetría informativa se traduce en una asimetría de poder. Como señala Zuboff (2020), el capitalismo de la vigilancia produce una forma de poder que no necesita coerción: le basta con conocimiento. Quien posee la capacidad de predecir el comportamiento de millones de personas tiene una ventaja estructural sobre esas personas, una ventaja que puede utilizarse con fines comerciales, pero también políticos ---como lo demostró el caso Cambridge Analytica--- o de control social.
+
+Para los ciudadanos uruguayos, esta dinámica implica que su autonomía ---entendida como la capacidad de tomar decisiones informadas y libres--- está condicionada por sistemas tecnológicos que operan de manera opaca. Cuando un algoritmo decide qué noticias muestra a un usuario, qué precio le ofrece por un producto, qué contenido le recomienda o qué resultados prioriza en una búsqueda de empleo, está influyendo en sus decisiones sin que el usuario sea consciente de esa influencia ni tenga herramientas efectivas para contrarrestarla. Esta situación es un ejemplo claro del sonambulismo tecnológico descrito por Winner: los ciudadanos aceptan estas tecnologías como hechos dados, sin interrogar las relaciones de poder que encarnan.
+
+\subsubsection{Vigilancia en el ámbito laboral}
+
+La vigilancia digital no se limita al ámbito del consumo y las redes sociales. En el mundo del trabajo, la IA y las herramientas digitales han habilitado formas de monitoreo que habrían sido impensables hace dos décadas. Software de seguimiento de productividad, captura automática de pantallas, registro de pulsaciones de teclado (\textit{keyloggers}), monitoreo de correos electrónicos, análisis de patrones de comunicación, seguimiento de movimientos mediante GPS y sistemas de evaluación algorítmica del desempeño son herramientas que empresas de todo el mundo ---incluidas empresas uruguayas--- pueden implementar para supervisar a sus empleados.
+
+En Uruguay, la expansión del teletrabajo ---acelerada por la pandemia de COVID-19 y facilitada por la buena infraestructura digital del país--- ha incrementado la relevancia de estas herramientas. Cuando el hogar se convierte en el espacio de trabajo, la frontera entre la vida laboral y la vida personal se difumina, y los sistemas de vigilancia empresarial pueden penetrar en el ámbito doméstico. La legislación laboral uruguaya no contempla de manera específica estas formas de vigilancia digital, generando una zona gris jurídica.
+
+Estas herramientas plantean tensiones entre la búsqueda de productividad y el respeto a la privacidad y dignidad de los trabajadores. Desde la perspectiva CTS, es importante señalar que la implementación de estas tecnologías no es una consecuencia inevitable del progreso técnico, sino una decisión organizacional que responde a lógicas de control y optimización. Que una tecnología de vigilancia exista no implica que deba ser implementada: la decisión sobre su uso es una decisión social y política, no meramente técnica. Como señala Winner (2008), debemos preguntarnos no solo qué puede hacer una tecnología, sino quién la diseña, con qué propósito y bajo qué marco de rendición de cuentas.
+
+\subsubsection{Dependencia tecnológica y capacidades nacionales}
+
+El análisis de la vigilancia digital en Uruguay desde el marco del triángulo de Sábato (Sábato y Botana, 1968) revela una situación de dependencia estructural. Los tres vértices del triángulo ---Estado, estructura productiva e infraestructura científico-tecnológica--- no están articulados de manera que permitan una autonomía tecnológica en el ámbito digital.
+
+El Estado uruguayo ha demostrado capacidad regulatoria (Ley 18.331, URCDP, adhesión al Convenio 108+) y ha desarrollado infraestructura pública (AGESIC, ID Uruguay, Plan Ceibal). Sin embargo, la estructura productiva en materia de servicios digitales está dominada por actores extranjeros: no existe un buscador uruguayo, una red social uruguaya ni una plataforma de mensajería uruguaya. La infraestructura científico-tecnológica ---universidades y centros de investigación--- produce conocimiento sobre IA y protección de datos, pero la capacidad de traducir ese conocimiento en alternativas tecnológicas nacionales es limitada.
+
+Esta dependencia no implica que Uruguay esté indefenso, pero sí que las herramientas disponibles son predominantemente regulatorias (imponer condiciones a los actores extranjeros) y no productivas (generar alternativas propias). El desafío consiste en fortalecer los vínculos del triángulo: que la universidad forme profesionales capaces de auditar sistemas de IA, que el Estado cuente con capacidad técnica para fiscalizar a las plataformas, y que la industria nacional desarrolle servicios que puedan ofrecer alternativas ---al menos en ciertos nichos--- a las plataformas globales.
+
+La cooperación regional emerge como una estrategia relevante: si los países latinoamericanos coordinan sus marcos regulatorios y desarrollan capacidades conjuntas de fiscalización, su poder de negociación frente a las plataformas globales se incrementa significativamente respecto de la acción individual de cada país.
+
+\subsubsection{Democratización del conocimiento y concentración corporativa}
+
+Un aspecto adicional que merece análisis desde la perspectiva CTS es la tensión entre la democratización del acceso al conocimiento que prometen las tecnologías digitales y la concentración del poder tecnológico en un reducido número de corporaciones. Los modelos generativos de lenguaje, por ejemplo, ofrecen a cualquier persona con acceso a internet la posibilidad de obtener explicaciones, traducciones, asistencia en la escritura y respuestas a preguntas complejas ---una forma de democratización del acceso al conocimiento que beneficia particularmente a estudiantes y profesionales en países en desarrollo.
+
+Sin embargo, esta democratización aparente coexiste con una concentración sin precedentes del poder tecnológico. El entrenamiento de un modelo generativo de última generación requiere inversiones del orden de cientos de millones de dólares, acceso a infraestructura computacional que solo un puñado de empresas posee, y cantidades de datos que solo las grandes plataformas pueden reunir. Esto significa que la herramienta que los uruguayos perciben como un servicio gratuito y accesible es, en realidad, la interfaz de usuario de un sistema cuyo control reside en empresas cuyo poder económico y tecnológico excede el de la mayoría de los Estados.
+
+Desde la perspectiva CTS, esta situación recuerda lo que Winner (2008) señala sobre las formas en que la tecnología puede distribuir poder: el acceso aparentemente igualitario a un servicio puede coexistir con una concentración radical del poder de decisión sobre cómo funciona ese servicio, qué datos recopila y con qué fines opera. La democratización del uso no implica la democratización del control.
+
+\subsubsection{La tecnología como construcción social: implicancias para la ingeniería}
+
+El enfoque CTS, y en particular la perspectiva SCOT (Bijker y Pinch, 1987), insiste en que la tecnología es una construcción social. Esto significa que los sistemas de IA, los algoritmos de recomendación y las plataformas digitales no son entidades que caen del cielo ni que siguen una trayectoria inevitable: son diseñados, programados y desplegados por personas ---en muchos casos, por ingenieros. Las decisiones que un ingeniero toma al diseñar un sistema ---qué datos recopilar, cómo procesarlos, qué optimizar, qué transparentar y qué ocultar--- tienen consecuencias sociales directas.
+
+Reconocer esto implica asumir que la ingeniería no es una actividad puramente técnica, sino una práctica con dimensiones éticas, políticas y sociales. El concepto de \textit{flexibilidad interpretativa} del programa SCOT resulta relevante: un mismo artefacto tecnológico puede ser diseñado de diferentes maneras, cada una de las cuales favorece distintos intereses y produce distintos efectos sociales. Un algoritmo de recomendación puede diseñarse para maximizar el tiempo de uso (favoreciendo los intereses comerciales de la plataforma) o para maximizar la satisfacción informada del usuario (favoreciendo su autonomía). La elección entre estos diseños no es una cuestión técnica: es una cuestión ética y política que los ingenieros enfrentan en su práctica profesional.
+
+Los futuros ingenieros tienen la posibilidad ---y la responsabilidad--- de diseñar tecnologías que respeten la privacidad, que sean transparentes en su funcionamiento, que permitan a los usuarios ejercer control sobre sus datos y que contribuyan al bienestar de la sociedad y no solamente a la rentabilidad de las empresas. Conceptos como \textit{privacidad por diseño} (\textit{privacy by design}), \textit{IA explicable} (\textit{explainable AI}) y \textit{diseño orientado a valores} (\textit{value-sensitive design}) ofrecen marcos concretos para llevar estas aspiraciones a la práctica ingenieril.
+
+% ========================================================================
+% 5. CONCLUSIONES
+% ========================================================================
+\section{Conclusiones}
+
+El presente trabajo se propuso analizar cómo los sistemas de inteligencia artificial y las plataformas digitales recopilan y utilizan datos personales, y evaluar las respuestas regulatorias del Estado uruguayo desde una perspectiva CTS. A partir de la investigación realizada, es posible formular las siguientes conclusiones.
+
+En relación con el primer objetivo específico, se constató que los mecanismos de recopilación de datos por parte de plataformas y sistemas de IA son extensos, diversificados y, en muchos casos, opacos para los usuarios. Los datos proporcionados directamente por el usuario constituyen solo una fracción de la información recopilada: los datos de comportamiento, los metadatos, los datos de terceros y los datos inferidos mediante algoritmos conforman un perfil que excede ampliamente lo que el usuario entrega de manera consciente. El concepto de excedente conductual de Zuboff (2020) permite comprender que esta recopilación no es un efecto secundario del servicio ofrecido, sino el motor de un modelo de negocios basado en la predicción y la modificación del comportamiento humano. Los modelos generativos de lenguaje representan una nueva frontera de esta dinámica, extendiendo la recopilación a las preguntas, reflexiones y procesos de pensamiento de los usuarios.
+
+En relación con el segundo objetivo, se identificó que Uruguay cuenta con un marco normativo e institucional que, en el contexto regional, resulta avanzado y ha sido reconocido internacionalmente mediante la decisión de adecuación de la Unión Europea y la adhesión al Convenio 108+. La Ley 18.331 y la URCDP constituyen herramientas valiosas para la protección de los datos personales de los ciudadanos. Sin embargo, el marco vigente presenta limitaciones significativas frente a los desafíos que plantean la inteligencia artificial y las plataformas globales: la ley no aborda la toma de decisiones automatizadas ni la transparencia algorítmica, el consentimiento informado es problemático en el contexto digital, la categoría de datos inferidos no está claramente regulada, y la capacidad de fiscalización frente a actores transnacionales es estructuralmente limitada. La actualización del marco normativo, tomando como referencia el RGPD europeo y el AI Act, surge como una necesidad concreta para mantener la relevancia y efectividad de la protección de datos en Uruguay.
+
+En relación con el tercer objetivo, el análisis CTS permitió evidenciar que la vigilancia digital no es un problema exclusivamente técnico ni jurídico, sino un fenómeno social que involucra relaciones de poder, autonomía ciudadana, soberanía estatal, dependencia tecnológica y capacidades nacionales. La asimetría entre las plataformas globales y los usuarios ---mediada por la opacidad de los algoritmos y la concentración de datos--- constituye una forma de poder que interpela directamente a la sociedad uruguaya y a sus instituciones. El marco del triángulo de Sábato permitió comprender que la dependencia tecnológica de Uruguay en materia de servicios digitales limita las opciones regulatorias disponibles y requiere el fortalecimiento de los vínculos entre Estado, industria y academia.
+
+El enfoque CTS, y en particular los aportes de Winner (2008), Zuboff (2020), el programa SCOT y el pensamiento latinoamericano sobre dependencia tecnológica, resultaron fundamentales para trascender una visión instrumental de la tecnología y comprender que los artefactos tecnológicos encarnan decisiones políticas con consecuencias sociales. La perspectiva del sonambulismo tecnológico de Winner resulta particularmente pertinente para describir la relación actual de los ciudadanos uruguayos con las plataformas digitales: un uso cotidiano y extensivo que rara vez va acompañado de una reflexión crítica sobre las implicancias de ese uso para la privacidad, la autonomía y la distribución del poder.
+
+Como futuros ingenieros, los autores de este trabajo reconocemos que las decisiones técnicas que tomemos en nuestra práctica profesional tendrán consecuencias que exceden lo técnico. Diseñar un sistema de recopilación de datos, implementar un algoritmo de recomendación, desarrollar una herramienta de monitoreo laboral o entrenar un modelo de lenguaje implica tomar decisiones con dimensiones éticas y políticas que no pueden ignorarse. La perspectiva SCOT nos recuerda que estas decisiones no están predeterminadas: existen alternativas de diseño que favorecen la privacidad, la transparencia y la autonomía del usuario, y es responsabilidad profesional de los ingenieros considerarlas seriamente. El curso de CTS nos ha proporcionado herramientas para pensar críticamente sobre estas cuestiones, y esperamos que este trabajo contribuya a una reflexión informada sobre el papel de la tecnología en nuestra sociedad.
+
+Finalmente, cabe señalar las limitaciones de este trabajo. La investigación se basó en revisión bibliográfica y análisis documental, sin incluir trabajo de campo (entrevistas o encuestas) que habría permitido complementar el análisis con perspectivas directas de actores relevantes ---funcionarios de la URCDP, profesionales del sector tecnológico, trabajadores sujetos a vigilancia algorítmica, usuarios de plataformas. Una línea de investigación futura podría incluir entrevistas a funcionarios de la URCDP o AGESIC sobre los desafíos de regular la IA, así como estudios empíricos sobre la percepción y el conocimiento de los ciudadanos uruguayos respecto al uso de sus datos personales. Asimismo, la rápida evolución de la inteligencia artificial ---particularmente de los modelos generativos de lenguaje y los sistemas multimodales--- abre nuevas preguntas que exceden el alcance de esta monografía pero que constituyen desafíos urgentes para la regulación y la reflexión CTS en los próximos años.
+
+% ========================================================================
+% BIBLIOGRAFÍA
+% ========================================================================
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem{aboal2021}
+Aboal, D., López, A., Maurizio, R. y Queraltó, P. (2021). Automatización y empleo en Uruguay. \textit{Desarrollo y Sociedad}, 1(87), 33--72. \url{https://doi.org/10.13043/DYS.87.2}
+
+\bibitem{agesic2019}
+AGESIC. (2019). \textit{Estrategia de Inteligencia Artificial para el Gobierno Digital}. Presidencia de la República, Uruguay. \url{https://www.gub.uy/agencia-gobierno-electronico-sociedad-informacion-conocimiento/politicas-y-gestion/estrategia-inteligencia-artificial-para-gobierno-digital}
+
+\bibitem{barafani2020}
+Barafani, M., Barral Verna, Á., Basco, A. I., Queijo, V. y Pietrafesa, F. (2020). \textit{Travesía 4.0: Hacia la adopción tecnológica uruguaya}. Banco Interamericano de Desarrollo. \url{https://doi.org/10.18235/0002794}
+
+\bibitem{bijker1987}
+Bijker, W. E. y Pinch, T. (1987). The Social Construction of Facts and Artifacts: Or How the Sociology of Science and the Sociology of Technology Might Benefit Each Other. En W. E. Bijker, T. P. Hughes y T. Pinch (Eds.), \textit{The Social Construction of Technological Systems} (pp. 17--50). MIT Press.
+
+\bibitem{ley18331}
+Uruguay. (2008). Ley N.º 18.331 --- Protección de Datos Personales y Acción de Habeas Data. \textit{Diario Oficial}. \url{https://www.impo.com.uy/bases/leyes/18331-2008}
+
+\bibitem{sabato1968}
+Sábato, J. y Botana, N. (1968). La ciencia y la tecnología en el desarrollo futuro de América Latina. \textit{Revista de la Integración}, 1(3), 15--36.
+
+\bibitem{srnicek2018}
+Srnicek, N. (2018). \textit{Capitalismo de plataformas}. Caja Negra Editora.
+
+\bibitem{winner2008}
+Winner, L. (2008). \textit{La ballena y el reactor: una búsqueda de los límites en la era de la alta tecnología} (2.ª ed.). Editorial Gedisa.
+
+\bibitem{zuboff2020}
+Zuboff, S. (2020). \textit{La era del capitalismo de la vigilancia: la lucha por un futuro humano frente a las nuevas fronteras del poder}. Trad. Albino Santos Mosquera. Ediciones Paidós. \url{https://perio.unlp.edu.ar/catedras/tpm/wp-content/uploads/sites/210/2023/06/ZUBOFF_1.pdf}
+
+\end{thebibliography}
+
+\end{document}
